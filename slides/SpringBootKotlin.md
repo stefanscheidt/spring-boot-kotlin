@@ -18,7 +18,7 @@ link: #25c5dc, alignment(left), line-height(1), text-scale(1.0), Titillium Web
 * Software Engineer bei REWE digital in Köln
 * Passionierter Software Crafter
 * > 20 Jahre Software-Entwicklung im Unternehmensumfeld
-* Aktuell: Microservices mit Spring Boot und Kotlin
+* Aktuell: Microservices mit Spring Boot und Java/Kotlin
 * [Twitter](https://twitter.com/stefanscheidt)/[GitHub](https://github.com/stefanscheidt): `stefanscheidt`
 
 ---
@@ -29,7 +29,7 @@ link: #25c5dc, alignment(left), line-height(1), text-scale(1.0), Titillium Web
 * Spring Boot
 * Kotin
 * Kotlin vs. Java
-* Spring Boot mit Kotlin
+* Spring Boot & Kotlin
 * Erfahrungen
 
 ---
@@ -37,15 +37,15 @@ link: #25c5dc, alignment(left), line-height(1), text-scale(1.0), Titillium Web
 # Spring Framework
 
 > "The Spring Framework provides a comprehensive programming and configuration model for modern Java-based enterprise applications - on any kind of deployment platform."
-[spring.io](https://spring.io/projects/spring-framework)
+-- [spring.io](https://spring.io/projects/spring-framework)
 
 ---
 
 # Spring Framework
 
 * "An inversion of control container and an application framework for the Java Platform"[^1]
-* > 15 Jahre alt
-* Sehr viele Module und begleitende [Projekte](https://spring.io/projects)
+* > 15 years old
+* Many [modules](https://docs.spring.io/spring/docs/5.1.7.RELEASE/spring-framework-reference/) and [side projects](https://spring.io/projects)
 
 [^1]: [Wikipedia](https://en.wikipedia.org/wiki/Spring_Framework)
 
@@ -54,7 +54,7 @@ link: #25c5dc, alignment(left), line-height(1), text-scale(1.0), Titillium Web
 # Spring Boot
 
 > "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can 'just run'."
-[spring.io](https://spring.io/projects/spring-boot)
+-- [spring.io](https://spring.io/projects/spring-boot)
 
 ---
 
@@ -88,10 +88,49 @@ link: #25c5dc, alignment(left), line-height(1), text-scale(1.0), Titillium Web
 
 ---
 
+# Kotlin - Extention Functions
+
+> "Kotlin provides the ability to extend a class with new functionality without having to inherit from the class or use any type of design pattern such as Decorator."
+-- [Kotlin Reference](https://kotlinlang.org/docs/reference/extensions.html)
+
+---
+
+# Kotlin - Extention Functions
+
+Instead of this
+
+```kotlin
+fun <T> swap(list: MutableList<T>, index1: Int, index2: Int) {
+    // implementation omitted ...
+}
+
+val list = mutableListOf(1, 2, 3)
+
+swap(list, 1, 2)
+```
+
+---
+
+# Kotlin - Extention functions
+
+... we can write this
+
+```kotlin
+fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
+    // same implementation as before ...
+}
+
+val list = mutableListOf(1, 2, 3)
+
+list.swap(1,2)
+```
+
+---
+
 # Kotlin - Reified Type Parameters
 
 * Functions marked with `inline` will be inlined by the compiler
-* In generic inlined functions, type params can be marked with `reified` and passed in at call side
+* In generic inlined functions, type parameters can be marked with `reified` and passed in at call side
 
 ---
 
@@ -112,12 +151,6 @@ treeNode.findParentOfType<MyTreeNode>()
 
 ---
 
-# Kotlin - Extention Functions
-
-TBD
-
----
-
 # Spring Boot with Kotlin
 
 * [Official Support](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin) since Spring Boot 2
@@ -131,6 +164,18 @@ TBD
 * [Null Safety](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin-null-safety)
 * [Bean Definition DSL](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin-bean-definition-dsl)
 * [WebFlux Functional DSL](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#webflux-functional-dsl)
+
+---
+
+# [Demo](https://start.spring.io/)
+
+---
+
+# Spring Boot with Kotlin - upcoming features
+
+Support for Kotlin Coroutines to use the Spring reactive stack
+
+See [WebFlux with coroutines API in Kotlin](https://spring.io/blog/2019/04/12/going-reactive-with-spring-coroutines-and-kotlin-flow#webflux-with-coroutines-api-in-kotlin)
 
 ---
 
@@ -170,7 +215,6 @@ TBD
 * [Kotlin Koans](https://kotlinlang.org/docs/tutorials/koans.html)
 * [Learn Kotlin by Example](https://play.kotlinlang.org/byExample/overview)
 * [Kotlin for Java Developers @ Coursera](https://www.coursera.org/learn/kotlin-for-java-developers)
-* ...
 
 ---
 
