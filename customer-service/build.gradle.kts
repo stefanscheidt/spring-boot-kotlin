@@ -1,15 +1,18 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.3.31" // updated
-    kotlin("plugin.jpa") version "1.3.31" // updated
-    kotlin("plugin.spring") version "1.3.31" // updated
-    id("org.springframework.boot") version "2.1.5.RELEASE"
-    id("io.spring.dependency-management") version "1.0.7.RELEASE"
+    val kotlinVersion = "1.3.50"
+    val springBootVersion = "2.2.0.RELEASE"
+
+    kotlin("jvm") version kotlinVersion // updated
+    kotlin("plugin.jpa") version kotlinVersion // updated
+    kotlin("plugin.spring") version kotlinVersion // updated
+    id("org.springframework.boot") version springBootVersion
+    id("io.spring.dependency-management") version "1.0.8.RELEASE"
 }
 
 group = "com.rewedigital.talks"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.2-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
@@ -25,7 +28,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     runtimeOnly("com.h2database:h2")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+    }
 }
 
 tasks.withType<KotlinCompile> {
@@ -33,4 +38,8 @@ tasks.withType<KotlinCompile> {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "1.8"
     }
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
