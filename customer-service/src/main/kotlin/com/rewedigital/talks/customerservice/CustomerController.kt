@@ -4,37 +4,40 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.net.URI
+import java.util.*
 
+const val CUSTOMERS_ENDPOINT = "/api/customers"
 
 @RestController
+@RequestMapping(CUSTOMERS_ENDPOINT)
 class CustomerController(private val customerRepository: CustomerRepository) {
 
-    @GetMapping("/customers/{id}")
+    @GetMapping("{id}")
     fun getCustomer(@PathVariable id: String): ResponseEntity<CustomerGetResponse> =
         customerRepository
             .findById(id)
             .map { ResponseEntity.ok(it.toGetResponse()) }
             .orElse(ResponseEntity.notFound().build())
 
-    @PostMapping("/customers")
+    @PostMapping
     fun createCustomer(@RequestBody createRequest: CustomerCreateRequest): ResponseEntity<Unit> =
         customerRepository
-            .save(createRequest.toEntity())
+            .save(createRequest.toEntity(UUID.randomUUID().toString()))
             .toCreatedResponse()
 
     private fun CustomerEntity.toCreatedResponse() =
         ResponseEntity
-            .created(URI.create("/customers/${id!!}"))
+            .created(URI.create("$CUSTOMERS_ENDPOINT/${id}"))
             .build<Unit>()
 
     private fun CustomerEntity.toGetResponse() =
-        CustomerGetResponse(id = id!!, name = name)
+        CustomerGetResponse(id = id, name = name)
 
-    private fun CustomerCreateRequest.toEntity() =
+    private fun CustomerCreateRequest.toEntity(id: String) =
         if (name == "Balrok")
             throw UnprocessableEntityExcepction("You can not pass!")
         else
-            CustomerEntity(name = name)
+            CustomerEntity(id = id, name = name)
 
 }
 

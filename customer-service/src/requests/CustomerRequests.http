@@ -5,16 +5,16 @@
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
-GET http://127.0.0.1:8080/customers/513b027f-d5b0-450c-8ede-a74641af5334
+GET http://127.0.0.1:8080/api/customers/3723d973-9516-4916-b3f7-58954861b85a
 Accept: application/json
 
 ###
 
-POST http://127.0.0.1:8080/customers
+POST http://127.0.0.1:8080/api/customers
 Content-Type: application/json
 
 {
-    "name": "Balrok"
+    "name": "Stefan"
 }
 
 ###
