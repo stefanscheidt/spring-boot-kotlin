@@ -22,7 +22,7 @@ import java.util.*
 @AutoConfigureMockMvc
 @AutoConfigureTestDatabase
 @Sql(statements = ["truncate table customers"])
-class CustomerControllerIntTest(
+class CustomerEndpointIntTest(
     @Autowired val mockMvc: MockMvc,
     @Autowired val jdbcTemplate: JdbcTemplate
 ) {
