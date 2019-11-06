@@ -3,6 +3,8 @@ background-color: #FFFFFF
 text: #777777, alignment(left), line-height(1), text-scale(1.0), Titillium Web
 header: #25c5dc, alignment(left), line-height(1), text-scale(1.0), Titillium Web
 link: #25c5dc, alignment(left), line-height(1), text-scale(1.0), Titillium Web
+autoscale: true
+
 
 [.header: #000000, alignment(center), line-height(1), text-scale(1.0), Titillium Web]
 ![original, fit](img/RD-Title.png)
@@ -160,10 +162,12 @@ treeNode.findParentOfType<MyTreeNode>()
 
 # Dedicated Support for Kotlin in Spring (Boot)
 
-* [Extention Functions](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin-extensions)
 * [Null Safety](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin-null-safety)
+* [Extention Functions](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin-extensions)
 * [Bean Definition DSL](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin-bean-definition-dsl)
-* [WebFlux Functional DSL](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#webflux-functional-dsl)
+* [Web Router DSL](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#router-dsl)
+* [Mock Web MVC DSL](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#router-dsl)
+* [Coroutines](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#coroutines)
 
 ---
 
@@ -171,11 +175,10 @@ treeNode.findParentOfType<MyTreeNode>()
 
 ---
 
-# Spring Boot with Kotlin - upcoming features
+# Incubator - KoFu
 
-Support for Kotlin Coroutines to use the Spring reactive stack
-
-See [WebFlux with coroutines API in Kotlin](https://spring.io/blog/2019/04/12/going-reactive-with-spring-coroutines-and-kotlin-flow#webflux-with-coroutines-api-in-kotlin)
+> "designed to configure Spring Boot explicitly with code in a declarative way with great discoverability thanks to auto-complete"
+-- [Spring Fu](https://github.com/spring-projects-experimental/spring-fu)
 
 ---
 
@@ -224,7 +227,9 @@ See [WebFlux with coroutines API in Kotlin](https://spring.io/blog/2019/04/12/go
 * [spring.io Tutorial](https://spring.io/guides/tutorials/spring-boot-kotlin/)
 * [Spring I/O 2018 Conference Talk (YouTube)](https://www.youtube.com/watch?v=btNIey_2Zdw)
 * [Devnexus 2019 Conference Talk (YouTube) Part I](https://www.recallact.com/presentation/kotlin-jumpstart-venkat-and-josh-part-1) & [Part II](https://www.recallact.com/presentation/kotlin-jumpstart-venkat-and-josh-part-2)
-* [Spring Fu](https://github.com/spring-projects/spring-fu)
+* [Spring I/O 2019 Keynote (YouTube)](https://youtu.be/Ylrxpbs6vcs?list=PLe6FX2SlkJdTlXfwer8JB-WGm-TEyIB2k&t=2763)
+* [Spring I/O 2019 Conference Talk (YouTube)](https://www.youtube.com/watch?v=kL_xTXXjEeE)
+* [Spring Fu](https://github.com/spring-projects-experimental/spring-fu)
 
 ---
 
