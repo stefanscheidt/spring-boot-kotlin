@@ -1,54 +1,48 @@
 package com.rewedigital.talks.customerservice
 
-import org.springframework.http.HttpStatus
+import mu.KotlinLogging
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.net.URI
 import java.util.*
+import java.util.UUID.randomUUID
 
 const val CUSTOMERS_ENDPOINT = "/api/customers"
+
+private val logger = KotlinLogging.logger {}
 
 @RestController
 @RequestMapping(CUSTOMERS_ENDPOINT)
 class CustomerController(private val customerRepository: CustomerRepository) {
 
-    @GetMapping("{id}")
-    fun getCustomer(@PathVariable id: String): ResponseEntity<CustomerGetResponse> =
-        customerRepository
-            .findById(id)
-            .map { ResponseEntity.ok(it.toGetResponse()) }
-            .orElse(ResponseEntity.notFound().build())
-
     @PostMapping
-    fun createCustomer(@RequestBody createRequest: CustomerCreateRequest): ResponseEntity<Unit> =
-        customerRepository
-            .save(createRequest.toEntity(UUID.randomUUID().toString()))
-            .toCreatedResponse()
+    fun createCustomer(@RequestBody request: CreateCustomerRequest): ResponseEntity<Unit> {
+        val uuid = randomUUID()
+        customerRepository.save(Customer(id = uuid, name = request.name))
+        return ResponseEntity
+            .created(URI.create("$CUSTOMERS_ENDPOINT/$uuid"))
+            .build()
+    }
 
-    private fun CustomerEntity.toCreatedResponse() =
-        ResponseEntity
-            .created(URI.create("$CUSTOMERS_ENDPOINT/${id}"))
-            .build<Unit>()
-
-    private fun CustomerEntity.toGetResponse() =
-        CustomerGetResponse(id = id, name = name)
-
-    private fun CustomerCreateRequest.toEntity(id: String) =
-        if (name == "Balrok")
-            throw UnprocessableEntityExcepction("You can not pass!")
+    @GetMapping("{id}")
+    fun getCustomer(@PathVariable id: String): ResponseEntity<Customer> {
+        val uuid = id.toUuidOrNull() ?: return ResponseEntity.badRequest().body(null)
+        val customer = customerRepository.findById(uuid)
+        return if (customer != null)
+            ResponseEntity.ok(customer)
         else
-            CustomerEntity(id = id, name = name)
+            ResponseEntity.notFound().build()
+    }
+
+    private fun String.toUuidOrNull() = try {
+        UUID.fromString(this)
+    } catch (e: IllegalArgumentException) {
+        logger.info { "cannot parse ID string $this" }
+        null
+    }
 
 }
 
-data class CustomerCreateRequest(
+data class CreateCustomerRequest(
     val name: String
 )
-
-data class CustomerGetResponse(
-    val id: String,
-    val name: String
-)
-
-@ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-class UnprocessableEntityExcepction(message: String) : Exception(message)
