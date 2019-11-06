@@ -208,7 +208,7 @@ treeNode.findParentOfType<MyTreeNode>()
     *   5+ Apps in Fulfillment
 
 *   Spring Boot
-    *   7+ Microservices (eCom, Fulfillment)
+    *   10+ Microservices (eCom, Fulfillment)
 
 ---
 
