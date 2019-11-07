@@ -229,6 +229,22 @@ treeNode.findParentOfType<MyTreeNode>()
 
 ---
 
+# Slides
+
+![inline](img/QR-Speakerdeck.png)
+
+### <https://speakerdeck.com/stefanscheidt/spring-boot-with-kotlin>
+
+---
+
+# Sources
+
+![inline](img/QR-GitHub.png)
+
+### <https://github.com/stefanscheidt/spring-boot-kotlin>
+
+---
+
 [.header: #000000, alignment(center), line-height(1), text-scale(1.0), Titillium Web]
 ![original, fit](img/RD-End.png)
 
