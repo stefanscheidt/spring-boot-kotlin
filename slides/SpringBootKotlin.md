@@ -7,20 +7,16 @@ autoscale: true
 
 
 [.header: #000000, alignment(center), line-height(1), text-scale(1.0), Titillium Web]
-![original, fit](img/RD-Title.png)
-
-# Frühling schreibt man mit K
-## Spring Boot mit Kotlin
-### Stefan Scheidt, REWE digital
+![original, fit](img/Kotlin-Everywhere-Title.png)
 
 ---
 
-# Über mich
+# About me
 
-* Software Engineer bei REWE digital in Köln
-* Passionierter Software Crafter
-* > 20 Jahre Software-Entwicklung im Unternehmensumfeld
-* Aktuell: Microservices mit Spring Boot und Java/Kotlin
+* Software Engineer at REWE digital in Köln
+* > 20 years of software development in enterprise context
+* Software Crafter
+* Current focus: Microservices with Spring Boot and Java/Kotlin
 * [Twitter](https://twitter.com/stefanscheidt)/[GitHub](https://github.com/stefanscheidt): `stefanscheidt`
 
 ---
