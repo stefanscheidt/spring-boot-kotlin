@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     val kotlinVersion = "1.3.50"
-    val springBootVersion = "2.2.0.RELEASE"
+    val springBootVersion = "2.2.1.RELEASE"
 
     kotlin("jvm") version kotlinVersion // updated
     kotlin("plugin.jpa") version kotlinVersion // updated
