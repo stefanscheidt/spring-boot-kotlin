@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "com.rewedigital.talks"
-version = "0.0.2-SNAPSHOT"
+version = "0.0.3-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
@@ -28,7 +28,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     runtimeOnly("com.h2database:h2")
 
-    implementation("io.github.microutils:kotlin-logging:1.7.6")
+    implementation("io.github.microutils:kotlin-logging:1.7.8")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
