@@ -6,10 +6,16 @@ link: #25c5dc, alignment(left), line-height(1), text-scale(1.0), Titillium Web
 autoscale: true
 
 
-[.header: #000000, alignment(center), line-height(1), text-scale(1.0), Titillium Web]
-![original, fit](img/Kotlin-Everywhere-Title.png)
+[.header: #25c5dc, alignment(center), line-height(1), text-scale(1.0), Titillium Web]
+![inline fill](img/JVM-Con-Titelbild.png)
+
+# Spring Boot mit Kotlin	
+## Stefan Scheidt, REWE digital
 
 ---
+
+[.header: #000000, alignment(center), line-height(1), text-scale(1.0), Titillium Web]	[.header: #000000, alignment(center), line-height(1), text-scale(1.0), Titillium Web]
+![original, fit](img/RD-Title.png)
 
 # About me
 
