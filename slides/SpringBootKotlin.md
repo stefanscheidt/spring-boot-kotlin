@@ -1,40 +1,52 @@
-theme: Simple, 1
-background-color: #FFFFFF
-text: #777777, alignment(left), line-height(1), text-scale(1.0), Titillium Web
-header: #25c5dc, alignment(left), line-height(1), text-scale(1.0), Titillium Web
-link: #25c5dc, alignment(left), line-height(1), text-scale(1.0), Titillium Web
+theme: simple
+background-color: #4c585a
+text: #d9d9d9, alignment(left), line-height(1), text-scale(1.0), Arial
+header: #d9d9d9, alignment(left), line-height(1), text-scale(1.0), Arial
+link: #61c1dd, alignment(left), line-height(1), text-scale(1.0), Arial
 autoscale: true
 
+# Spring Boot mit Kotlin
 
-[.header: #25c5dc, alignment(center), line-height(1), text-scale(1.0), Titillium Web]
-![inline fill](img/JVM-Con-Titelbild.png)
-
-# Spring Boot mit Kotlin	
 ## Stefan Scheidt, REWE digital
 
 ---
 
-[.header: #000000, alignment(center), line-height(1), text-scale(1.0), Titillium Web]	[.header: #000000, alignment(center), line-height(1), text-scale(1.0), Titillium Web]
-![original, fit](img/RD-Title.png)
+[.build-lists: true]
+
+# Agenda
+
+* About me & REWE digital
+* Spring Framework & Spring Boot
+* Kotlin
+* Spring Boot & Kotlin
+* Experiences
+
+---
 
 # About me
 
-* Software Engineer at REWE digital in Köln
-* > 20 years of software development in enterprise context
-* Software Crafter
+* Software Engineer at REWE digital in Cologne/Germany
+* 20+ years of software development in enterprise context
 * Current focus: Microservices with Spring Boot and Java/Kotlin
 * [Twitter](https://twitter.com/stefanscheidt)/[GitHub](https://github.com/stefanscheidt): `stefanscheidt`
 
 ---
 
-# Agenda
+# REWE digital
 
-* Spring Framework
-* Spring Boot
-* Kotin
-* Kotlin vs. Java
-* Spring Boot & Kotlin
-* Erfahrungen
+![inline](img/Bierdeckel.png)
+
+---
+
+# Kotlin @ REWE digital
+
+*   Android
+    *   REWE Angebote & Lieferservice (since 2016!)
+    *   PENNY Coupons & Angebote
+    *   5+ Apps in Fulfillment
+
+*   Spring Boot
+    *   10+ Microservices (eCom, Fulfillment)
 
 ---
 
@@ -48,8 +60,8 @@ autoscale: true
 # Spring Framework
 
 * "An inversion of control container and an application framework for the Java Platform"[^1]
-* > 15 years old
-* Many [modules](https://docs.spring.io/spring/docs/5.1.7.RELEASE/spring-framework-reference/) and [side projects](https://spring.io/projects)
+* 16+ years old
+* Many [modules](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/) and [side projects](https://spring.io/projects)
 
 [^1]: [Wikipedia](https://en.wikipedia.org/wiki/Spring_Framework)
 
@@ -64,6 +76,8 @@ autoscale: true
 
 # Spring Boot - Features
 
+[.build-lists: true]
+
 * Create stand-alone Spring applications
 * Embed Tomcat, Jetty or Undertow directly
 * Provide opinionated 'starter' dependencies to simplify build configuration
@@ -74,11 +88,15 @@ autoscale: true
 
 # Kotlin
 
-* Programming Language for JVM, Android, Browser, Native
-* Concise, Safe, Interoperable, Tool-friendly
-* Developed by [JetBrains](https://www.jetbrains.com/), Open Source since 2012, v 1.0 in Feb. 2016
+[.build-lists: true]
+
+* Programming language for JVM, Android, Browser, Native
+* Concise, safe, interoperable, tool-friendly
+* Developed by [JetBrains](https://www.jetbrains.com/)
+* Open source since 2012
+* Version 1.0 in Feb. 2016
 * 2017: Google announced first class support for Kotlin on Android
-* 2019: Kotlin is the preferred language for Android development
+* 2019: Kotlin is preferred language for Android development
 
 ---
 
@@ -134,7 +152,7 @@ list.swap(1,2)
 # Kotlin - Reified Type Parameters
 
 * Functions marked with `inline` will be inlined by the compiler
-* In generic inlined functions, type parameters can be marked with `reified` and passed in at call side
+* In inlined generic functions, type parameters can be marked with `reified` and passed in at call side
 
 ---
 
@@ -157,12 +175,16 @@ treeNode.findParentOfType<MyTreeNode>()
 
 # Spring Boot with Kotlin
 
-* [Official Support](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin) since Spring Boot 2
+* [Official Support](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-kotlin) since Spring Boot 2.x
+    *   Spring Boot 2.3.x supports Kotlin 1.3.x
+    *   Spring Boot 2.4.x will support Kotlin 1.4.x
 * Initial Project Setup via [Spring Initializr](https://start.spring.io/)
 
 ---
 
 # Dedicated Support for Kotlin in Spring (Boot)
+
+[.build-lists: true]
 
 * [Null Safety](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin-null-safety)
 * [Extention Functions](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin-extensions)
@@ -177,61 +199,28 @@ treeNode.findParentOfType<MyTreeNode>()
 
 ---
 
-# Incubator - KoFu
+# Spring Fu
+## Incubator for Java and Kotlin Configuration DSL
 
-> "designed to configure Spring Boot explicitly with code in a declarative way with great discoverability thanks to auto-complete"
+> "designed to configure Spring Boot explicitly with code<br>in a declarative way with great discoverability thanks to<br>auto-completion"
 -- [Spring Fu](https://github.com/spring-projects-experimental/spring-fu)
-
----
-
-# REWE digital
-
-![inline](img/RD-Shop.png)
-
----
-
-# REWE digital
-
-![inline](img/Bierdeckel.png)
-
----
-
-# REWE digital
-
-![inline](img/RD-Wachstum.png)
-
----
-
-# Kotlin @ REWE digital
-
-*   Android
-    *   REWE Angebote & Lieferservice (seit 2016!)
-    *   PENNY Coupons & Angebote
-    *   5+ Apps in Fulfillment
-
-*   Spring Boot
-    *   10+ Microservices (eCom, Fulfillment)
 
 ---
 
 # Resources - Kotlin
 
 * [kotlinlang.org](https://kotlinlang.org/docs/reference/)
-* [Kotlin Koans](https://kotlinlang.org/docs/tutorials/koans.html)
 * [Learn Kotlin by Example](https://play.kotlinlang.org/byExample/overview)
-* [Kotlin for Java Developers @ Coursera](https://www.coursera.org/learn/kotlin-for-java-developers)
+* [Kotlin for Java Developers](https://www.coursera.org/learn/kotlin-for-java-developers) (Coursera)
+* [Kotlin in Action](https://www.manning.com/books/kotlin-in-action) (Manning)
 
 ---
 
 # Resources - Spring Boot with Kotlin
 
-* [Spring Framework Reference](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin) since Spring Boot 2
+* [Spring Framework Reference](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/languages.html#kotlin)
 * [spring.io Tutorial](https://spring.io/guides/tutorials/spring-boot-kotlin/)
-* [Spring I/O 2018 Conference Talk (YouTube)](https://www.youtube.com/watch?v=btNIey_2Zdw)
-* [Devnexus 2019 Conference Talk (YouTube) Part I](https://www.recallact.com/presentation/kotlin-jumpstart-venkat-and-josh-part-1) & [Part II](https://www.recallact.com/presentation/kotlin-jumpstart-venkat-and-josh-part-2)
-* [Spring I/O 2019 Keynote (YouTube)](https://youtu.be/Ylrxpbs6vcs?list=PLe6FX2SlkJdTlXfwer8JB-WGm-TEyIB2k&t=2763)
-* [Spring I/O 2019 Conference Talk (YouTube)](https://www.youtube.com/watch?v=kL_xTXXjEeE)
-* [Spring Fu](https://github.com/spring-projects-experimental/spring-fu)
+* [The State of Kotlin Support in Spring](https://youtu.be/j2OEtSO2gvM) (YouTube)
 
 ---
 
@@ -250,9 +239,6 @@ treeNode.findParentOfType<MyTreeNode>()
 ### <https://github.com/stefanscheidt/spring-boot-kotlin>
 
 ---
-
-[.header: #000000, alignment(center), line-height(1), text-scale(1.0), Titillium Web]
-![original, fit](img/RD-End.png)
 
 # Thank you!
 
