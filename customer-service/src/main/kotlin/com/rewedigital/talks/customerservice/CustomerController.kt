@@ -27,9 +27,9 @@ private val logger = KotlinLogging.logger {}
 class CustomerController(private val customerRepository: CustomerRepository) {
 
     @PostMapping
-    fun createCustomer(@RequestBody request: CreateCustomerRequest): ResponseEntity<Unit> {
+    fun createCustomer(@RequestBody command: CreateCustomerCommand): ResponseEntity<Unit> {
         val uuid = randomUUID()
-        customerRepository.save(Customer(id = uuid, name = request.name))
+        customerRepository.save(Customer(id = uuid, name = command.name))
         return ResponseEntity
             .created(URI.create("$CUSTOMERS_ENDPOINT/$uuid"))
             .build()
@@ -75,7 +75,7 @@ class CustomerAPI(private val customerRepository: CustomerRepository) {
     }
 
     fun createCustomer(request: ServerRequest): ServerResponse {
-        val body = request.body<CreateCustomerRequest>()
+        val body = request.body<CreateCustomerCommand>()
         val uuid = randomUUID()
         customerRepository.save(Customer(id = uuid, name = body.name))
         return ServerResponse
@@ -85,7 +85,7 @@ class CustomerAPI(private val customerRepository: CustomerRepository) {
 
 }
 
-data class CreateCustomerRequest(
+data class CreateCustomerCommand(
     val name: String
 )
 

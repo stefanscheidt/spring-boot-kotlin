@@ -82,7 +82,7 @@ class CustomerEndpointIntTest(
             }
     }
 
-    private fun getCustomerJson(id: String, name: String) =
+    private fun getCustomerJson(id: String, name: String): String =
         """
             {
                 "id": "$id",
@@ -91,14 +91,14 @@ class CustomerEndpointIntTest(
             
         """.trimIndent()
 
-    private fun createCustomerJson(name: String) =
+    private fun createCustomerJson(name: String): String =
         """
             {
                 "name": "$name"
             }
         """.trimIndent()
 
-    private fun idFromLocation(location: String) =
+    private fun idFromLocation(location: String): String =
         location.split("/").last()
 
     private fun nameFromDB(id: String) =

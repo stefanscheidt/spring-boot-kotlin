@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
 @AutoConfigureTestDatabase
-class CustomerServiceApplicationTests {
+class ApplicationTests {
 
     @Test
     fun contextLoads() {
