@@ -13,9 +13,7 @@ import java.util.*
 
 @DataJdbcTest
 @Sql(statements = ["truncate table customers"])
-class CustomerRepositoryIntTest(
-    @Autowired private val jdbcTemplate: JdbcTemplate
-) {
+class CustomerRepositoryTest(@Autowired jdbcTemplate: JdbcTemplate) {
 
     private val customerRepository = CustomerRepository(jdbcTemplate)
 

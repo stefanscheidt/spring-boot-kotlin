@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "1.3.72"
-    val springBootVersion = "2.3.4.RELEASE"
-    val springDependencyManagementVersion = "1.0.10.RELEASE"
+    val kotlinVersion = "1.5.30"
+    val springBootVersion = "2.5.4"
+    val springDependencyManagementVersion = "1.0.11.RELEASE"
 
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "com.rewedigital.talks"
-version = "0.0.4-SNAPSHOT"
+version = "0.0.5-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    val kotlinLoggingVersion = "1.12.0"
+    val kotlinLoggingVersion = "2.0.11"
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
@@ -32,9 +32,7 @@ dependencies {
 
     implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
-        exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
-    }
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<KotlinCompile> {

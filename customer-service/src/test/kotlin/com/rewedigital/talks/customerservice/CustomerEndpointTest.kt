@@ -22,7 +22,7 @@ import java.util.*
 @AutoConfigureMockMvc
 @AutoConfigureTestDatabase
 @Sql(statements = ["truncate table customers"])
-class CustomerEndpointIntTest(
+class CustomerEndpointTest(
     @Autowired val mockMvc: MockMvc,
     @Autowired val jdbcTemplate: JdbcTemplate
 ) {
@@ -36,7 +36,7 @@ class CustomerEndpointIntTest(
                 content = createCustomerJson(name = customerName)
             }
             .andExpect {
-                status { isCreated }
+                status { isCreated() }
                 header { string("location", not(emptyOrNullString())) }
             }
             .andReturn().response.getHeaderValue("location") as String
@@ -49,7 +49,7 @@ class CustomerEndpointIntTest(
                 accept = MediaType.APPLICATION_JSON
             }
             .andExpect {
-                status { isOk }
+                status { isOk() }
                 content {
                     json(getCustomerJson(id, customerName))
                 }
@@ -64,7 +64,7 @@ class CustomerEndpointIntTest(
                 accept = MediaType.APPLICATION_JSON
             }
             .andExpect {
-                status { isNotFound }
+                status { isNotFound() }
                 content { string(emptyOrNullString()) }
             }
     }
@@ -77,7 +77,7 @@ class CustomerEndpointIntTest(
                 accept = MediaType.APPLICATION_JSON
             }
             .andExpect {
-                status { isBadRequest }
+                status { isBadRequest() }
                 content { string(emptyOrNullString()) }
             }
     }

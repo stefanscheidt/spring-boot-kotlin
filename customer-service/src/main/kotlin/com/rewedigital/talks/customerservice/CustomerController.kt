@@ -22,6 +22,7 @@ const val CUSTOMERS_ENDPOINT = "/api/customers"
 
 private val logger = KotlinLogging.logger {}
 
+@Suppress("unused")
 // @RestController
 // @RequestMapping(CUSTOMERS_ENDPOINT)
 class CustomerController(private val customerRepository: CustomerRepository) {
@@ -54,8 +55,8 @@ class CustomerRouterConfiguration {
     fun customerRouter(customerAPI: CustomerAPI) = router {
         CUSTOMERS_ENDPOINT.nest {
             accept(MediaType.APPLICATION_JSON).nest {
+                POST("", customerAPI::createCustomer)
                 GET("/{id}", customerAPI::getCustomer)
-                POST("/", customerAPI::createCustomer)
             }
         }
     }
@@ -63,6 +64,15 @@ class CustomerRouterConfiguration {
 
 @Component
 class CustomerAPI(private val customerRepository: CustomerRepository) {
+
+    fun createCustomer(request: ServerRequest): ServerResponse {
+        val body = request.body<CreateCustomerCommand>()
+        val uuid = randomUUID()
+        customerRepository.save(Customer(id = uuid, name = body.name))
+        return ServerResponse
+            .created(URI.create("$CUSTOMERS_ENDPOINT/$uuid"))
+            .build()
+    }
 
     fun getCustomer(request: ServerRequest): ServerResponse {
         val uuid = request.pathVariable("id").toUuidOrNull()
@@ -72,15 +82,6 @@ class CustomerAPI(private val customerRepository: CustomerRepository) {
             ServerResponse.ok().body(customer)
         else
             ServerResponse.notFound().build()
-    }
-
-    fun createCustomer(request: ServerRequest): ServerResponse {
-        val body = request.body<CreateCustomerCommand>()
-        val uuid = randomUUID()
-        customerRepository.save(Customer(id = uuid, name = body.name))
-        return ServerResponse
-            .created(URI.create("$CUSTOMERS_ENDPOINT/$uuid"))
-            .build()
     }
 
 }
